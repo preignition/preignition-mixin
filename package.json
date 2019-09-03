@@ -1,6 +1,6 @@
 {
   "name": "@preignition/preignition-mixin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Webcomponent preignition-mixin following open-wc recommendations",
   "authors": [
     "christophe.geiser <christophe.geiser@preignition.org>"
@@ -22,20 +22,17 @@
     "test:compatibility": "karma start --compatibility all --coverage",
     "test:compatibility:watch": "karma start --compatibility all --auto-watch=true --single-run=false"
   },
-  
   "dependencies": {
     "lit-html": "^1.0.0",
     "lit-element": "^2.0.1",
     "d3-selection": "1"
   },
-  
   "@pika/web": {
     "webDependencies": [
       "d3-selection",
       "lit-element"
     ]
   },
-
   "devDependencies": {
     "es-dev-server": "^1.5.0",
     "@open-wc/testing-karma": "^3.0.0",
