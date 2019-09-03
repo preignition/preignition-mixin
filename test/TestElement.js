@@ -29,7 +29,7 @@ export class TestElement extends LitElement {
 
   render() {
     return html`
-      <h2 id="title">${this.title} Nr. ${this.counter}!</h2>
+      <h2 id="title"> ${this.title} Nr. ${this.counter}!</h2>
       <button @click=${this.__increment}>increment</button>
     `;
   }

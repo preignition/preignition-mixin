@@ -1,7 +1,7 @@
 import {
   select
 }
-from 'web_modules/d3-selection.js';
+from 'd3-selection';
 
 const selectShadow = (selector, el) => {
   return select(el.shadowRoot.querySelector(selector));

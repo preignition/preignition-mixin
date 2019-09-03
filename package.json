@@ -31,7 +31,8 @@
   
   "@pika/web": {
     "webDependencies": [
-      "d3-selection"
+      "d3-selection",
+      "lit-element"
     ]
   },
 
