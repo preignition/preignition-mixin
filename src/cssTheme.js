@@ -1,8 +1,7 @@
 import {
   unsafeCSS
 }
-// from '/web_modules/lit-element.js';
-from 'lit-element';
+from '/web_modules/lit-element.js';
 
 /**
  * applies style to a already registered custom element
