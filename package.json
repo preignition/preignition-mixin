@@ -12,7 +12,6 @@
   "module": "index.js",
   "scripts": {
     "postpublish": "git push && git push --tags",
-    "prepublishOnly": "pika install --optimize",
     "prepare": "pika install --optimize",
     "start": "es-dev-server --app-index demo/index.html --node-resolve --open --watch",
     "start:compatibility": "es-dev-server --app-index demo/index.html --compatibility all --node-resolve --open --watch",
