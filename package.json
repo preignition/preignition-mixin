@@ -1,6 +1,6 @@
 {
   "name": "@preignition/preignition-mixin",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Webcomponent preignition-mixin following open-wc recommendations",
   "authors": [
     "christophe.geiser <christophe.geiser@preignition.org>"
