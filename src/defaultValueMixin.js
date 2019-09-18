@@ -3,7 +3,7 @@
  *
  * @param {LitElement} baseElement - the LitElement to extend
  */
-export const DefaultValue = (baseElement) => class extends baseElement {
+export const defaultValue = (baseElement) => class extends baseElement {
   
   constructor() {
     super();
@@ -20,4 +20,4 @@ export const DefaultValue = (baseElement) => class extends baseElement {
   
 }
 
-export default DefaultValue;
+export default defaultValue;

@@ -1,11 +1,7 @@
-import {
-  select
-}
-from 'd3-selection';
-// from '/web-modules/d3-selection.js';
+import { select } from 'd3-selection';
 
-const selectShadow = (selector, el) => {
+export const selectShadow = (selector, el) => {
   return select(el.shadowRoot.querySelector(selector));
 }
 
-export default selectShadow
+export default selectShadow;

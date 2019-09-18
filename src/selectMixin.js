@@ -1,12 +1,9 @@
-import {
-  default as select
-}
-from './selectShadow.js';
+import { selectShadow } from './selectShadow.js';
 
 export const selectMixin = (superclass) => class extends superclass {
   
   selectShadow(selector) {
-    return select(selector, this);
+    return selectShadow(selector, this);
   }
 }
 
