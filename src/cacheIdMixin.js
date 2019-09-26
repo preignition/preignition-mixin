@@ -14,7 +14,7 @@ const CacheId = superClass => {
     // Note(cg): stores all ids under this.$
     firstUpdated(props) {
       super.firstUpdated(props);
-      [...this.shadowRoot.querySelectorAll('[id]')].forEach(node => {
+      [...this.renderRoot.querySelectorAll('[id]')].forEach(node => {
         this.$[node.id] = node;
       })
     }
