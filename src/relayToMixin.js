@@ -1,10 +1,10 @@
-import { dedupingMixin } from '@polymer/polymer/lib/utils/mixin.js';
+// import { dedupingMixin } from '@polymer/polymer/lib/utils/mixin.js';
 
 /**
  * RelayTo mixin, used to automatically relay properties to child components
  */
 
-const RelayTo = dedupingMixin(superClass => {
+const RelayTo = superClass => {
 
   return class extends superClass {
     
@@ -30,7 +30,7 @@ const RelayTo = dedupingMixin(superClass => {
     }
   }
 
-});
+};
 
 /*
  * @mixinFunction
