@@ -1,6 +1,6 @@
 {
   "name": "@preignition/preignition-mixin",
-  "version": "1.8.4",
+  "version": "1.8.5",
   "description": "Utils mixin used by Preignition-mixin. To be consumed by lit-element components",
   "authors": [
     "christophe.geiser <christophe.geiser@preignition.org>"
