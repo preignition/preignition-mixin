@@ -13,12 +13,12 @@ const CacheId = superClass => {
 
     // Note(cg): stores all ids under this.$
     firstUpdated(props) {
-      super.firstUpdated(props);
       [...this.renderRoot.querySelectorAll('[id]')].forEach(node => {
         this.$[node.id] = node;
-      })
+      });
+      super.firstUpdated(props);
     }
-  }
+  };
 };
 
 /*
