@@ -1,4 +1,3 @@
-export { default as selectShadow } from './src/selectShadow.js';
 export { default as cssTheme } from './src/cssTheme.js';
 
 export { default as DoNotSetUndefinedValue } from './src/doNotSetUndefinedValue.js'; 

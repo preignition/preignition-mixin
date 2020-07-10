@@ -11,8 +11,8 @@ describe('Select Mixin', () => {
       <select-element></select-element>
     `);
 
-    const title = el.selectShadow('#title')
-    expect(title.node().id).to.equal('title');
+    const title = el.queryShadow('#title')
+    expect(title.id).to.equal('title');
   });
 
 });
