@@ -10,7 +10,8 @@ export const cssTheme = (css, element) => {
   if (!cls) {
     throw new Error(`custom element for ${element} is not yet registered`);
   }
-  cls._styles.push(unsafeCSS(css));
+
+  cls._styles && cls._styles.push(unsafeCSS(css));
 };
 
 export default cssTheme;

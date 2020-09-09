@@ -1,4 +1,7 @@
-export { default as cssTheme } from './src/cssTheme.js';
+// Note(cg): stop implementing theming,
+// We will follow what Vaadin is proposing.
+// .
+// export { default as cssTheme } from './src/cssTheme.js';
 
 export { default as DoNotSetUndefinedValue } from './src/doNotSetUndefinedValue.js'; 
 export { default as SelectMixin } from './src/selectMixin.js';
