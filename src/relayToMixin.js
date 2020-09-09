@@ -7,18 +7,21 @@
 const RelayTo = superClass => {
 
   return class extends superClass {
-    
+
     shallRelayTo() {
       this.log && console.warn(`shallPassTo method has to be overriden`);
       return false;
-      
+
     }
 
-    relayTo(props, name) {
+    async relayTo(props, name) {
       if (!this[`__${name}`]) {
         this[`__${name}`] = this.queryShadow(`#${name}`);
         if (!this[`__${name}`]) {
-          throw new Error(`Failed to get ${name} from shadowDom!`)
+          console.warn(`Failed to get ${name} from shadowDom!`);
+          await this.updateComplete;
+          return this.relayTo(props, name);
+          // throw new Error(`Failed to get ${name} from shadowDom!`)
         }
       }
       props.forEach((value, key) => {
@@ -26,9 +29,9 @@ const RelayTo = superClass => {
           this.log && console.log('Change', key);
           this[`__${name}`][key] = this[key];
         }
-      })
+      });
     }
-  }
+  };
 
 };
 

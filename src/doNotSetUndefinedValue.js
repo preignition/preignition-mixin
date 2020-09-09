@@ -5,77 +5,14 @@
  * @return {LitElement Class}             
  */
 
-/**
- * Change function that returns true if `value` is different from `oldValue`.
- * This method is used as the default for a property's `hasChanged` function.
- */
-export const notEqual = (value, old) => {
-  // This ensures (old==NaN, value==NaN) always returns false
-  return old !== value && (old === old || value === value);
-};
-
-const defaultConverter = {
-  toAttribute(value, type) {
-    switch (type) {
-      case Boolean:
-        return value ? '' : null;
-      case Object:
-      case Array:
-        // if the value is `null` or `undefined` pass this through
-        // to allow removing/no change behavior.
-        return value == null ? value : JSON.stringify(value);
-    }
-    return value;
-  },
-  fromAttribute(value, type) {
-    switch (type) {
-      case Boolean:
-        return value !== null;
-      case Number:
-        return value === null ? null : Number(value);
-      case Object:
-      case Array:
-        return JSON.parse(value);
-    }
-    return value;
-  }
-};
-
-const defaultPropertyDeclaration = {
-  attribute: true,
-  type: String,
-  converter: defaultConverter,
-  reflect: false,
-  hasChanged: notEqual
-};
-
 export const doNotSetUndefinedValue = (baseElement) => class extends baseElement {
 
   /**
-   * Override the LitElement `createProperty` method to avoid undefined values to be set
-   *
-   * Creates a property accessor on the element prototype if one does not exist.
-   * The property setter calls the property's `hasChanged` property option
-   * or uses a strict identity check to determine whether or not to request
-   * an update.
-   * @nocollapse
+   * Override LitElement `getPropertyDescriptor` method to avoid undefined values to be set
    */
-  static createProperty(name, options = defaultPropertyDeclaration) {
-    // Note, since this can be called by the `@property` decorator which
-    // is called before `finalize`, we ensure storage exists for property
-    // metadata.
-    this._ensureClassProperties();
-    this._classProperties.set(name, options);
-    // Do not generate an accessor if the prototype already has one, since
-    // it would be lost otherwise and that would never be the user's intention;
-    // Instead, we expect users to call `requestUpdate` themselves from
-    // user-defined accessors. Note that if the super has an accessor we will
-    // still overwrite it
-    if (options.noAccessor || this.prototype.hasOwnProperty(name)) {
-      return;
-    }
-    const key = typeof name === 'symbol' ? Symbol() : `__${name}`;
-    Object.defineProperty(this.prototype, name, {
+
+  static getPropertyDescriptor(name, key, options) {
+    return {
       // tslint:disable-next-line:no-any no symbol in index
       get() {
         return this[key];
@@ -87,12 +24,13 @@ export const doNotSetUndefinedValue = (baseElement) => class extends baseElement
         }
         const oldValue = this[name];
         this[key] = value;
-        this._requestUpdate(name, oldValue);
+        this
+          .requestUpdateInternal(name, oldValue, options);
       },
       configurable: true,
       enumerable: true
-    });
+    };
   }
-}
+};
 
 export default doNotSetUndefinedValue;

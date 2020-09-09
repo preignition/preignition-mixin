@@ -6,11 +6,11 @@ import { unsafeCSS } from 'lit-element';
  * @param  {String} element   element name
  */
 export const cssTheme = (css, element) => {
-  const cls = customElements.get(element)
+  const cls = customElements.get(element);
   if (!cls) {
-    throw new Error(`custom element for ${element} is not yet registered`)
+    throw new Error(`custom element for ${element} is not yet registered`);
   }
   cls._styles.push(unsafeCSS(css));
-}
+};
 
 export default cssTheme;
