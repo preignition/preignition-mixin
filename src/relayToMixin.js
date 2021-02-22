@@ -1,4 +1,3 @@
-// import { dedupingMixin } from '@polymer/polymer/lib/utils/mixin.js';
 
 /**
  * RelayTo mixin, used to automatically relay properties to child components
