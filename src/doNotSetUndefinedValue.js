@@ -1,12 +1,11 @@
 /**
- * a mixin for avoiding that undefined attributes or properties values set by parent 
+ * a mixin for avoiding that undefined attributes or properties values set by parent
  * are applied to the element
- * @param  {LiElement Class} baseElement 
- * @return {LitElement Class}             
+ * @param  {LiElement Class} baseElement
+ * @return {LitElement Class}
  */
 
 export const doNotSetUndefinedValue = (baseElement) => class extends baseElement {
-
   /**
    * Override LitElement `getPropertyDescriptor` method to avoid undefined values to be set
    */

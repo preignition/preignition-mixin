@@ -13,7 +13,7 @@ export function eventNameForProperty(name, { notify, attribute } = {}) {
         return `${name.toLowerCase()}-changed`;
     }
   }
-  
+
   // eslint-disable-next-line valid-jsdoc
   /**
   * Enables the nofity option for properties to fire change notification events
@@ -27,15 +27,15 @@ export function eventNameForProperty(name, { notify, attribute } = {}) {
      */
     update(changedProps) {
         super.update(changedProps);
-  
+
         for (const prop of changedProps.keys()) {
-            const declaration = this.constructor._classProperties.get(prop)
+            const declaration = this.constructor._classProperties.get(prop);
             if (!declaration || !declaration.notify) continue;
-            const type = eventNameForProperty(prop, declaration)
-            const value = this[prop]
+            const type = eventNameForProperty(prop, declaration);
+            const value = this[prop];
             this.dispatchEvent(new CustomEvent(type, { detail: { value } }));
         }
     }
   };
-  
+
   export default LitNotify;

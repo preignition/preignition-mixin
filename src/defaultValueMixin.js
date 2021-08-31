@@ -4,7 +4,6 @@
  * @param {LitElement} baseElement - the LitElement to extend
  */
 export const defaultValue = (baseElement) => class extends baseElement {
-
   constructor() {
     super();
     if (this.constructor.properties) {

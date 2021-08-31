@@ -3,9 +3,7 @@
  */
 
 const CacheId = superClass => {
-
   return class extends superClass {
-
     constructor() {
       super();
       this.$ = {};

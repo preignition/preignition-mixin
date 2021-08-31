@@ -4,13 +4,10 @@
  */
 
 const RelayTo = superClass => {
-
   return class extends superClass {
-
     shallRelayTo() {
       this.log && console.warn(`shallPassTo method has to be overriden`);
       return false;
-
     }
 
     async relayTo(props, name) {
@@ -31,7 +28,6 @@ const RelayTo = superClass => {
       });
     }
   };
-
 };
 
 /*
